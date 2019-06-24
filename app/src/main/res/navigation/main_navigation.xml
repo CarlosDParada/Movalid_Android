@@ -2,19 +2,19 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_navigation"
-            app:startDestination="@id/homeFragment">
-    <fragment android:id="@+id/homeFragment" android:name="com.carlosdp.movalid.screen.home.HomeFragment"
-              android:label="HomeFragment">
-        <action android:id="@+id/action_homeFragment_to_searchFragment" app:destination="@id/searchFragment"
-                app:popUpTo="@+id/homeFragment"/>
-        <action android:id="@+id/action_homeFragment_to_detailFragment" app:destination="@id/detailFragment"
-                app:popUpTo="@+id/homeFragment"/>
+            app:startDestination="@id/home_destination">
+    <fragment android:id="@+id/home_destination" android:name="com.carlosdp.movalid.screen.home.HomeFragment"
+              android:label="home_fragment">
+        <action android:id="@+id/action_home_destination_to_search_fragment" app:destination="@id/search_fragment"
+                app:popUpTo="@+id/home_destination"/>
+        <action android:id="@+id/action_home_destination_to_detail_fragment" app:destination="@id/detail_fragment"
+                app:popUpTo="@+id/home_destination"/>
     </fragment>
-    <fragment android:id="@+id/detailFragment" android:name="com.carlosdp.movalid.screen.detail.DetailFragment"
-              android:label="DetailFragment"/>
-    <fragment android:id="@+id/searchFragment" android:name="com.carlosdp.movalid.screen.search.SearchFragment"
-              android:label="SearchFragment">
-        <action android:id="@+id/action_searchFragment_to_detailFragment" app:destination="@id/detailFragment"
-                app:popUpTo="@+id/searchFragment"/>
+    <fragment android:id="@+id/detail_fragment" android:name="com.carlosdp.movalid.screen.detail.DetailFragment"
+              android:label="detail_fragment"/>
+    <fragment android:id="@+id/search_fragment" android:name="com.carlosdp.movalid.screen.search.SearchFragment"
+              android:label="search_fragment">
+        <action android:id="@+id/action_search_fragment_to_detail_fragment" app:destination="@id/detail_fragment"
+                app:popUpTo="@+id/search_fragment"/>
     </fragment>
 </navigation>
