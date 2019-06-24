@@ -2,8 +2,19 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_navigation"
-            app:startDestination="@id/mainActivity">
-
-    <activity android:id="@+id/mainActivity" android:name="com.carlosdp.movalid.ui.main.MainActivity"
-              android:label="activity_main" tools:layout="@layout/activity_main"/>
+            app:startDestination="@id/homeFragment">
+    <fragment android:id="@+id/homeFragment" android:name="com.carlosdp.movalid.screen.home.HomeFragment"
+              android:label="HomeFragment">
+        <action android:id="@+id/action_homeFragment_to_searchFragment" app:destination="@id/searchFragment"
+                app:popUpTo="@+id/homeFragment"/>
+        <action android:id="@+id/action_homeFragment_to_detailFragment" app:destination="@id/detailFragment"
+                app:popUpTo="@+id/homeFragment"/>
+    </fragment>
+    <fragment android:id="@+id/detailFragment" android:name="com.carlosdp.movalid.screen.detail.DetailFragment"
+              android:label="DetailFragment"/>
+    <fragment android:id="@+id/searchFragment" android:name="com.carlosdp.movalid.screen.search.SearchFragment"
+              android:label="SearchFragment">
+        <action android:id="@+id/action_searchFragment_to_detailFragment" app:destination="@id/detailFragment"
+                app:popUpTo="@+id/searchFragment"/>
+    </fragment>
 </navigation>

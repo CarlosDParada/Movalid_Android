@@ -1,4 +1,4 @@
-package com.carlosdp.movalid.ui.main
+package com.carlosdp.movalid.screen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
