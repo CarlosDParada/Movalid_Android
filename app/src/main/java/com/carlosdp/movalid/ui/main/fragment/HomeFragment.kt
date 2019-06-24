@@ -1,4 +1,4 @@
-package com.carlosdp.movalid
+package com.carlosdp.movalid.ui.main.fragment
 
 
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.carlosdp.movalid.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

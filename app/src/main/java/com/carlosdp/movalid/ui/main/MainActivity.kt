@@ -1,7 +1,8 @@
-package com.carlosdp.movalid
+package com.carlosdp.movalid.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.carlosdp.movalid.R
 
 class MainActivity : AppCompatActivity() {
 
