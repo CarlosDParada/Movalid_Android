@@ -7,7 +7,6 @@ import com.carlosdp.movalid.utils.VERSION
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import io.reactivex.Observable
 import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -31,7 +30,15 @@ interface MovalidApiService {
     @GET("$VERSION/movie/popular$BASE_PARAMETERS")
     fun getFilmPopularOne():
             Deferred<ResponseApi>
-//    fun getFilmPopular(@QueryMap options :Map<String, String> ): Observable<Response>
+
+    @GET("$VERSION/movie/top_rated$BASE_PARAMETERS")
+    fun getFilmTopRatedOne():
+            Deferred<ResponseApi>
+
+    @GET("$VERSION/movie/upcoming$BASE_PARAMETERS")
+    fun getFilmUpComingOne():
+            Deferred<ResponseApi>
+
 }
 
 object MovalidApi {

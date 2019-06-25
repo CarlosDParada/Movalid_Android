@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.carlosdp.movalid.model.Movie
 import com.carlosdp.movalid.network.MovalidApi
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,42 +17,75 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class HomeViewModel: ViewModel(){
+class HomeViewModel : ViewModel() {
 
     //Encapsulation
     var _message = MutableLiveData<String>()
-    val message : LiveData<String>
+    val message: LiveData<String>
         get() = _message
 
-    private val _response = MutableLiveData<ResponseApi>()
-    val response: LiveData<ResponseApi>
-        get() = _response
+    private val _properties = MutableLiveData<List<Movie>>()
+    val properties: LiveData<List<Movie>>
+        get() = _properties
 
     init {
         _message.value = ""
     }
 
     private var viewModelJob = Job()
+
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
-    fun getMoviePopular(){
-        val url = BASE_URL +"/movie/popular$BASE_PARAMETERS"
+    fun getMoviePopular() {
+        val url = BASE_URL + "/movie/popular$BASE_PARAMETERS"
         Log.i("Movalid", "URL Popular $url")
 
         coroutineScope.launch {
-            MovalidApi.retrofitService.getFilmPopularOne().enqueue( object: Callback<ResponseApi> {
-                override fun onFailure(call: Call<ResponseApi>, t: Throwable) {
-                    _message.value = "Failure: " + t.message
-                }
-                override fun onResponse(call: Call<ResponseApi>, response: Response<ResponseApi>) {
-                    Log.i("Movalid", "${response.body()?.total_results}")
-                    _response.value = response.body()
-                    _message.value = "Success: ${response.body()?.results?.size}"
-                }
-            })
+            var getMoviesPopularDeferred = MovalidApi.retrofitService.getFilmPopularOne()
+            try {
+                var listResult = getMoviesPopularDeferred.await()
+                _properties.value = listResult.results
 
+                _message.value = "Success: ${listResult.results?.size}"
+                Log.i("Movalid", "${listResult.total_results}")
+
+            } catch (t: Throwable) {
+                _message.value = "Failure: " + t.message
+            }
         }
+    }
 
 
+    fun getMovieTopRated() {
+        coroutineScope.launch {
+            var getMoviesPopularDeferred = MovalidApi.retrofitService.getFilmTopRatedOne()
+            try {
+                var listResult = getMoviesPopularDeferred.await()
+                _properties.value = listResult.results
+
+            } catch (t: Throwable) {
+                _message.value = "Failure: " + t.message
+            }
+        }
+    }
+
+    fun getMovieUpComing() {
+
+        coroutineScope.launch {
+            var getMoviesPopularDeferred = MovalidApi.retrofitService.getFilmUpComingOne()
+            try {
+                var listResult = getMoviesPopularDeferred.await()
+                _properties.value = listResult.results
+
+            } catch (t: Throwable) {
+                _message.value = "Failure: " + t.message
+            }
+        }
+    }
+
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
     }
 }

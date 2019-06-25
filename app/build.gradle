@@ -64,4 +64,9 @@ dependencies {
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$version_retrofit_coroutines_adapter"
     //image
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation "com.github.bumptech.glide:glide:$version_glide"
+    kapt 'com.github.bumptech.glide:compiler:4.8.0'
+
+    implementation "androidx.recyclerview:recyclerview:$version_recyclerview"
 }
