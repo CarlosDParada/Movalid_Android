@@ -18,7 +18,7 @@
 ### Vista principal de la aplicación:
 En la parte superior se observa las opciones para visualizar Películas o Series, y de cada una de estas se puede escoger entre las categorías "Popular", "Top Rated" y "Upcoming". Para la opción seleccionada se observa la lista de películas/series que pertenecen a ella.
 
-<img src="./Screenshot/home.png" width="300"> <img src="./Screenshot/homeSerie.png" width="300">
+<img src="./Screenshot/home1.png" width="300"> <img src="./Screenshot/home2.png" width="300">
 
 ### Vista detallada de una película/serie:
 Se muestra toda la información en pantalla completa, su imagen, fecha, categorías, sinopsis y en la parte superior izquierda un ícono de video que permite visualizar su trailer.
