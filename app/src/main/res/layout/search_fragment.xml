@@ -1,29 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
                 name="searchViewModel"
                 type="com.carlosdp.movalid.screen.search.SearchViewModel" />
     </data>
-    <LinearLayout
-            android:orientation="vertical"
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <EditText
-                android:layout_width="371dp"
-                android:layout_height="42dp"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/editText" />
+            android:layout_height="match_parent"
+            tools:context=".screens.home.HomeFragment" android:background="@color/background_app_color">
+
+
+        <TextView
+                android:text="@string/name_app"
+                android:layout_width="347dp"
+                android:gravity="center_horizontal"
+                android:layout_height="30dp" android:id="@+id/textViewTitleSearch" tools:text="@string/name_app"
+                android:fontFamily="@font/amiko_semibold" android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="32dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent" android:textSize="24sp"
+                android:textColor="@color/ic_launcher_background"/>
+        <Button
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:id="@+id/btnGoBack"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:background="@android:drawable/ic_menu_revert"/>
         <Button
                 android:text="@string/movie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button"/>
+                android:id="@+id/buttonMovieSearch"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSeriesSearch"
+                android:theme="@style/contentType" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitleSearch"/>
         <Button
                 android:text="@string/Serie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button2"/>
-    </LinearLayout>
+                android:id="@+id/buttonSeriesSearch"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:theme="@style/contentType"
+                app:layout_constraintStart_toEndOf="@+id/buttonMovieSearch" app:layout_constraintHorizontal_bias="0.5"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textViewTitleSearch"/>
+        <TextView
+                android:text="@string/search"
+                android:layout_width="141dp"
+                android:gravity="center_horizontal"
+                android:layout_height="20dp" android:id="@+id/textSearch" tools:text="@string/place_holder_search"
+                android:fontFamily="@font/amiko_semibold" android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="108dp"
+                app:layout_constraintTop_toTopOf="parent" android:textSize="12sp"
+                android:textColor="@color/ic_launcher_background" app:layout_constraintHorizontal_bias="0.0"/>
+        <TableLayout
+                android:layout_width="396dp"
+                android:layout_height="475dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="24dp"
+                android:id="@+id/tableHomeSearch" android:contentDescription="@string/infoTable"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/searchView"/>
+        <SearchView
+                android:layout_width="329dp"
+                android:layout_height="40dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="50dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="50dp" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textSearch" android:id="@+id/searchView"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

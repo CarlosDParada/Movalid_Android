@@ -12,4 +12,7 @@
     <color name="grey_button_color">#606060</color>
     <color name="white_text_color">#ffffff</color>
 
+    <color name="content_color">#5B79F5</color>
+    <color name="category_color">#FE8166</color>
+    <color name="background_app_color">#1D1D27</color>
 </resources>

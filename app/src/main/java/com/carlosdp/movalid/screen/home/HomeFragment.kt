@@ -36,12 +36,19 @@ class HomeFragment  : Fragment() {
         Log.i("GameFragment" ,"Called ViewModelProviders.of!")
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
+        binding.setLifecycleOwner (this)
         binding.homeViewModel = viewModel
+
 
         binding.imageSearch.setOnClickListener {
             //TODO:  Revisar como hizo el Directions
             findNavController().navigate(HomeFragmentDirections.actionHomeDestinationToSearchFragment())
         }
+
+        binding.buttonPopular.setOnClickListener {
+            viewModel.getMoviePopular()
+        }
+
         return binding.root
     }
 

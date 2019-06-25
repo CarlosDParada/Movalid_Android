@@ -11,25 +11,36 @@
             android:id="@+id/home_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".screens.home.HomeFragment">
+            tools:context=".screens.home.HomeFragment" android:background="@color/background_app_color">
 
 
+        <TextView
+                android:text="@string/name_app"
+                android:layout_width="347dp"
+                android:gravity="center_horizontal"
+                android:layout_height="50dp" android:id="@+id/textViewTitleSearch" tools:text="@string/name_app"
+                android:fontFamily="@font/amiko_semibold" android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="32dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent" android:textSize="36sp"
+                android:textColor="@color/ic_launcher_background"/>
         <Button
                 android:text="@string/Serie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonSeries" app:layout_constraintStart_toEndOf="@+id/buttonMovie"
+                android:id="@+id/buttonSeriesSearch" app:layout_constraintStart_toEndOf="@+id/buttonMovie"
                 app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/buttonMovie"
-                app:layout_constraintBottom_toBottomOf="@+id/buttonMovie" android:theme="@style/GoButton"/>
+                app:layout_constraintBottom_toBottomOf="@+id/buttonMovie" android:theme="@style/contentType"/>
         <Button
                 android:text="@string/movie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/buttonMovie"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintEnd_toStartOf="@+id/buttonSeries" app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="24dp" android:theme="@style/GoButton"/>
+                app:layout_constraintEnd_toStartOf="@+id/buttonSeriesSearch"
+                android:theme="@style/contentType" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitleSearch"/>
         <Button
                 android:text="@string/upComming"
                 android:layout_width="wrap_content"
@@ -37,7 +48,7 @@
                 android:id="@+id/buttonUpComing" app:layout_constraintStart_toEndOf="@+id/buttonTopRated"
                 app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/buttonTopRated"
-                app:layout_constraintBottom_toBottomOf="@+id/buttonTopRated" android:theme="@style/SkipButton"/>
+                app:layout_constraintBottom_toBottomOf="@+id/buttonTopRated" android:theme="@style/categoryButton"/>
         <Button
                 android:text="@string/topRated"
                 android:layout_width="wrap_content"
@@ -46,7 +57,7 @@
                 app:layout_constraintStart_toEndOf="@+id/buttonPopular" app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toStartOf="@+id/buttonUpComing"
                 app:layout_constraintTop_toTopOf="@+id/buttonPopular"
-                app:layout_constraintBottom_toBottomOf="@+id/buttonPopular" android:theme="@style/SkipButton"/>
+                app:layout_constraintBottom_toBottomOf="@+id/buttonPopular" android:theme="@style/categoryButton"/>
         <Button
                 android:text="@string/popular"
                 android:layout_width="wrap_content"
@@ -54,15 +65,15 @@
                 android:id="@+id/buttonPopular"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toStartOf="@+id/buttonTopRated" android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/buttonMovie" android:theme="@style/SkipButton"/>
+                app:layout_constraintTop_toBottomOf="@+id/buttonMovie" android:theme="@style/categoryButton"/>
         <TableLayout
-                android:layout_width="395dp"
-                android:layout_height="571dp"
+                android:layout_width="400dp"
+                android:layout_height="450dp"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="24dp"
-                app:layout_constraintTop_toBottomOf="@+id/buttonTopRated" android:layout_marginTop="24dp"
-                android:id="@+id/tableHome" android:contentDescription="@string/infoTable"/>
+                android:id="@+id/tableHomeSearch" android:contentDescription="@string/infoTable"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/buttonTopRated"/>
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_menu_search"
