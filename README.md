@@ -1,9 +1,17 @@
 # Movalid (Android)
 
-> Aplicación nativa en Android desarrollada para consultar películas y series divididas en 3 categrías: "Popular", "Top Rated" y "Upcoming". Para cada película o serie se muestra su título, sinopsis, fecha y categorías.
+> Aplicación nativa en Android desarrollada para consultar películas y series divididas en 3 categrías: "Popular", "Top Rated" y "Upcoming". Para cada película o serie se muestra su poster, título, sinopsis, fecha y categorías.
 
 > Las películas y series son tomadas de la API "The Movie Database API" (https://developers.themoviedb.org/4/getting-started/authorization)
 
+### Información:
+- MVVM
+- AndroidStudio 10.2.1
+- Kotlin 1.3.21 (JetPack)
+- RetroFit 2.4.0
+- Navigation 1.0.0
+- Glide 4.8.0
+- Moshi 1.8.0
 
 ## Capturas de pantalla
 
@@ -27,12 +35,25 @@ A esta sección se ingresa desde el ícono de lupa en la parte superior derecha 
 
 ### Capa de persistencia
 
-### Capa de Vista
+Movie.kt	
+ResponseApi.kt
+HomeViewModel.kt
 
+### Capa de Vista
+HomeFragment.kt
+home_fragment.xml
 
 ### Capa de Red
-
+PostApi.kt
 
 ## Responsabilidad de las clases
 
+Movie.kt	
+ResponseApi.kt = Representacion de la respuesta generica del WebService que contiene una lista de Movie
+HomeViewModel.kt = ViewModel al que se conecta el HomeFragment
+
+HomeFragment.kt = Fragment principal 
+home_fragment.xml 
+
+PostApi.kt = Encargado de realizar las peticiones por medio de RetroFit
 
